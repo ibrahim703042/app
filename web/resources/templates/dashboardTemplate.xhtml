@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>
+        <ui:insert name="title">Declaration</ui:insert>
+    </title>
+    
+    <!-- Custom styles for this template -->
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+    <h:outputStylesheet library="css" name="admin.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
+
+</h:head>
+<h:body>
+    
+    <ui:insert name="sidebar" >
+        <ui:include src="/resources/templates/admin/sidebar.xhtml" />
+    </ui:insert>
+
+    <section class="my-container">
+        <ui:insert name = "header" >
+            <ui:include src = "/resources/templates/admin/header.xhtml" />
+        </ui:insert>
+        <div class="p-4">
+            <ui:insert name="contents" >
+                <ui:include src="/resources/templates/admin/contents.xhtml" />
+            </ui:insert>
+        </div>
+    </section>
+            
+    <!-- Custom style js for this template -->
+    <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
+    
+    <!-- custom js -->
+    <script>
+        var menu_btn = document.querySelector("#menu-btn");
+        var sidebar = document.querySelector(".sidebar-nav");
+        var container = document.querySelector(".my-container");
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav");
+            container.classList.toggle("active-cont");
+        });
+    </script>
+   
+    
+</h:body>
+</html>

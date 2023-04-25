@@ -1,11 +1,66 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="/resources/templates/dashboardTemplate.xhtml">
+    
+    <ui:define name = "contents">
+        
+        <div class="row">
+                <div class="col-md-12 mb-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <span><i class="h4 bi bi-table me-2"></i></span>
+                            <h:outputText class="h6" value="contribuables" />
+                            <button type="button" class="btn btn-primary float-end">
+                                Add admin
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr class="bg-dark text-light">
+                                            <th>ID</th>
+                                            <th>Full name</th>
+                                            <th>E-mail</th>
+                                            <th>Contact</th>
+                                            <th>Address</th>
+                                            <th colspan="2"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Kwizera Ibrahim</td>
+                                            <td>Kwizera.ibrahim@gmail.com</td>
+                                            <td>+257 68274651</td>
+                                            <td>Bujumbura</td>
+                                            <td>
+                                                <h:form>
+                                                    <h:commandLink value="" class="text-info">
+                                                        <i class="bi bi-pencil-square"></i>
+                                                    </h:commandLink>
+                                                 </h:form>
+                                            </td>
+                                            <td>
+                                                <h:form>
+                                                    <h:commandLink value="" class="text-danger" 
+                                                        onclick="if (!confirm('Are you sure want to delete this employee?')) return false">
+                                                        <i class="bi bi-trash"></i>
+                                                    </h:commandLink>
+                                                </h:form>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+    </ui:define>
+        
+</ui:composition>

@@ -3,41 +3,43 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://xmlns.jcp.org/jsf/core">
     
-    <nav class="navbar navbar-expand d-flex flex-column align-item-start px-3 sidebar-nav">
-        <a href="#" class="navbar-brand text-light mt-5">
-            <div class="display-5 font-weight-bold">Admin</div>
-        </a>
-        <ul class="navbar-nav d-flex flex-column mt-5 w-100">
-            <li class="nav-item w-100">
-                <a href="#" class="nav-link text-light pl-4">
-                    <i  class="bi bi-speedometer2 me-2"></i>
-                    Dashboard
-                </a>
-            </li>
-            <li class="nav-item w-100">
-                <a href="#" class="nav-link text-light pl-4">
-                    <i  class="bi bi-people-fill me-2"></i>
-                    Administrateurs
-                </a>
-            </li>
-            <li class="nav-item w-100">
-                <a href="#" class="nav-link text-light pl-4">
-                    <i  class="bi bi-people-fill me-2"></i>
-                    Contribuables
-                </a>
-            </li>
-            
-            
-            <li class="nav-item fixed-bottom">
-                <div class="">
-                    <a href="#" class="nav-link text-light pl-4">
-                        <i class="bi bi-box-arrow-in-right"></i>
-                        Se deconnecte
-                    </a>
-                </div>
-                
-            </li>
-        </ul>
-    </nav>		
- 	
+    <h:form>
+        <nav class="navbar navbar-expand d-flex flex-column align-item-start px-3 sidebar-nav">
+            <a href="#" class="navbar-brand text-light mt-5">
+                <div class="display-5 font-weight-bold">Admin</div>
+            </a>
+            <ul class="navbar-nav d-flex flex-column mt-5 w-100">
+                <li class="nav-item w-100">
+                    <span class="nav-link pl-4">
+                        <i  class=" text-light bi bi-speedometer2 me-2"></i>
+                        <h:commandButton styleClass=" text-light border-0 bg-transparent" 
+                            action = "/resources/templates/dashboardTemplate.xhtml" value = "Dashboard" />
+                    </span>
+                </li>
+                <li class="nav-item w-100">
+                    <span class="nav-link pl-4">
+                        <i  class=" text-light bi bi-people-fill me-2"></i>
+                        <h:commandButton styleClass=" text-light border-0 bg-transparent" 
+                            action = "/pages/admin/index" value = "Administrateurs" />
+                    </span>
+                </li>
+                <li class="nav-item w-100">
+                    <span class="nav-link pl-4">
+                        <i  class=" text-light bi bi-people-fill me-2"></i>
+                        <h:commandButton styleClass=" text-light border-0 bg-transparent" 
+                            action = "/pages/contribuable/index" value = "Contribuables" />
+                    </span>
+                </li>
+
+
+                <li class="nav-item">
+                    <span class="nav-link pl-4">
+                        <i class=" text-light bi bi-box-arrow-in-right me-2"></i>
+                        <h:commandButton styleClass=" text-light border-0 bg-transparent" 
+                            action = "page2" value = "Se deconnecte" />
+                    </span>
+                </li>
+            </ul>
+        </nav>		
+    </h:form>
 </ui:composition>

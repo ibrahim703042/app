@@ -1,23 +1,101 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://xmlns.jcp.org/jsf/core">
-  
-    <h:commandButton class="btn my-4" value="Toggle Sidebar" id="menu-btn" />
-    <h1>Bootstrap 5 Sidebar Navigation</h1>
-    <p class="text-dark">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam facilis inventore harum, architecto libero recusandae porro doloremque sunt cum consectetur, autem, vitae ea nihil sapiente voluptas at aut suscipit eos? Sapiente quam culpa aliquam
-        itaque debitis nihil doloremque rem! Praesentium quae, facere nobis impedit quisquam aliquid maxime error? Totam eaque earum fuga aliquam sequi excepturi illum optio quas tempora ea! Eum perspiciatis accusantium distinctio eveniet consequatur
-        sint illo officiis? Saepe dolores fugiat rerum, voluptatem sunt culpa nihil accusantium voluptates unde hic magnam quos est perspiciatis recusandae incidunt quod laborum vitae. Harum modi inventore ea odit eaque ut maiores voluptate nihil
-        aspernatur voluptatibus exercitationem ipsa nam animi neque tempore, eligendi, repellendus praesentium ex voluptatum? Magni laboriosam nemo, assumenda veniam aperiam eum! Eos, ipsum. Eum illo quos quo tempora excepturi reprehenderit numquam
-        voluptas! Blanditiis autem optio labore quisquam culpa, tempora minus eum repudiandae ea voluptatem quia obcaecati velit cum dolorum esse dolorem!
-    </p>
-    <p class="text-dark">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam facilis inventore harum, architecto libero recusandae porro doloremque sunt cum consectetur, autem, vitae ea nihil sapiente voluptas at aut suscipit eos? Sapiente quam culpa aliquam
-        itaque debitis nihil doloremque rem! Praesentium quae, facere nobis impedit quisquam aliquid maxime error? Totam eaque earum fuga aliquam sequi excepturi illum optio quas tempora ea! Eum perspiciatis accusantium distinctio eveniet consequatur
-        sint illo officiis? Saepe dolores fugiat rerum, voluptatem sunt culpa nihil accusantium voluptates unde hic magnam quos est perspiciatis recusandae incidunt quod laborum vitae. Harum modi inventore ea odit eaque ut maiores voluptate nihil
-        aspernatur voluptatibus exercitationem ipsa nam animi neque tempore, eligendi, repellendus praesentium ex voluptatum? Magni laboriosam nemo, assumenda veniam aperiam eum! Eos, ipsum. Eum illo quos quo tempora excepturi reprehenderit numquam
-        voluptas! Blanditiis autem optio labore quisquam culpa, tempora minus eum repudiandae ea voluptatem quia obcaecati velit cum dolorum esse dolorem!
-    </p>
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="/resources/templates/dashboardTemplate.xhtml">
+    
+    <ui:define name = "contents">
+        
+        <!-- ______________  begin breadcrumb ______________ -->
+        
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <h:link
+                        styleClass=" text-primary text-decoration-underline" 
+                        outcome="/resources/templates/dashboardTemplate.xhtml" 
+                        value = "Dashboard" 
+                    />
+                </li>
+                
+                <li class="breadcrumb-item active" aria-current="page">
+                    Administrateur
+                </li>
+
+            </ol>
+                
+        </nav>
+        
+        <!-- ______________end breadcrumb ______________ -->
+
+        <div class="row mt-5 pt-5">
+                <div class="col-md-12 mb-3">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between center">
+                            <span>
+                                <i class="h4 bi bi-table me-2"></i>
+                                <h:outputText class="h6" value="Administrateur" />
+                            </span>
+                                <h:form>
+                                    
+                                    <span class="btn btn-primary">
+                                            <i class="h6 bi bi-person-plus me-2"></i>
+                                            <h:commandButton 
+                                                styleClass="text-light border border-0 bg-transparent" 
+                                                action = "/pages/admin/ajouter.xhtml" 
+                                                value = "ajouter" 
+                                            />
+                                        </span>
+                                        
+                                </h:form>
+                            
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr class="bg-dark text-light">
+                                            <th>ID</th>
+                                            <th>Full name</th>
+                                            <th>E-mail</th>
+                                            <th>Contact</th>
+                                            <th>Address</th>
+                                            <th colspan="2"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Kwizera Ibrahim</td>
+                                            <td>Kwizera.ibrahim@gmail.com</td>
+                                            <td>+257 68274651</td>
+                                            <td>Bujumbura</td>
+                                            <td>
+                                                <h:form>
+                                                    <h:commandLink value="" class="text-info">
+                                                        <i class="bi bi-pencil-square"></i>
+                                                    </h:commandLink>
+                                                 </h:form>
+                                            </td>
+                                            <td>
+                                                <h:form>
+                                                    <h:commandLink value="" class="text-danger" 
+                                                        onclick="if (!confirm('Are you sure want to delete this employee?')) return false">
+                                                        <i class="bi bi-trash"></i>
+                                                    </h:commandLink>
+                                                </h:form>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+    </ui:define>
         
 </ui:composition>
